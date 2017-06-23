@@ -1,0 +1,91 @@
+{
+	"variables": [],
+	"info": {
+		"name": "cours-ionic3",
+		"_postman_id": "aec6273a-f13a-cf62-f95c-d68c83f91fed",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"url": "localhost:4300/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"test\",\n  \"password\" : \"test\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Authentification",
+			"request": {
+				"url": "http://localhost:4300/api/authenticate",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QiLCJwYXNzd29yZCI6InRlc3QiLCJpYXQiOjE0OTc5MTAwMzYsImV4cCI6MTQ5Nzk5NjQzNn0._CMUvXqdu7GIYakxPT2leIqYn2dHAnFcJ6FgCK6FsME",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Places",
+			"request": {
+				"url": "http://localhost:4300/api/places",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QiLCJwYXNzd29yZCI6InRlc3QiLCJpYXQiOjE0OTc5MTAwMzYsImV4cCI6MTQ5Nzk5NjQzNn0._CMUvXqdu7GIYakxPT2leIqYn2dHAnFcJ6FgCK6FsME",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Signin",
+			"request": {
+				"url": "http://localhost:4300/signin",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"test\",\n  \"password\" : \"test\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

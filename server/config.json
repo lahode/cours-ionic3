@@ -1,0 +1,4 @@
+{
+  "JWT_SECRET" : "myphrasesecrete",
+  "PORT" : "4300"
+}
