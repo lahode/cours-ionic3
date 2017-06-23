@@ -25,6 +25,7 @@ export class TabsPage {
   }
 
   logout() {
+    this.navCtrl.setRoot('LoginPage');
   }
 
 }
