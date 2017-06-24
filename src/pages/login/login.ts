@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, LoadingController, ToastController, ModalController } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth';
 
 /**
  * Generated class for the LoginPage page.
@@ -19,6 +20,7 @@ export class LoginPage {
   error:string;
 
   constructor(public readonly navCtrl: NavController,
+              private readonly auth:AuthProvider,
               private readonly modalCtrl: ModalController,
               private readonly loadingCtrl: LoadingController,
               private readonly toastCtrl: ToastController) {
@@ -37,14 +39,16 @@ export class LoginPage {
 
     loading.present();
 
-    setTimeout(() => {
-      loading.dismiss();
-      this.handleError('Erreur!');
-    }, 500);
+    this.auth
+      .login({email:this.email, password:this.password })
+      .finally(() => loading.dismiss())
+      .subscribe(
+        () => {},
+        err => this.handleError(err));
   }
 
   handleError(error: any) {
-    let message: string = `${error}`;
+    let message: string = `${error.statusText}`;
 
     const toast = this.toastCtrl.create({
       message,
