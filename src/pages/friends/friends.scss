@@ -1,3 +1,6 @@
 page-friends {
-
+  .friends_error {
+    color: color($colors, error);
+    text-align: center;
+  }
 }

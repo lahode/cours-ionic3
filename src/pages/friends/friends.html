@@ -10,7 +10,15 @@
 
 </ion-header>
 
-
 <ion-content padding>
-
+  <ion-item-group light *ngFor="let group of contactsfound">
+    <ion-list-header>{{group.value}}</ion-list-header>
+    <ion-item  *ngFor="let item of group.list">
+      <h2>{{item.name}}</h2>
+      <p>{{item.phone}}</p>
+    </ion-item>
+  </ion-item-group>
+  <ion-item *ngIf="error" class="friends_error">
+    {{error}}
+  </ion-item>
 </ion-content>
