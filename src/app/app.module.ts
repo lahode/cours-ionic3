@@ -11,6 +11,7 @@ import { Storage, IonicStorageModule} from "@ionic/storage";
 import { MyApp } from './app.component';
 import { AuthProvider } from '../providers/auth';
 import { EndpointsProvider } from '../providers/endpoints';
+import { PlacesProvider } from '../providers/places';
 
 // Auth Factory
 export function authHttpServiceFactory(http: Http, options: RequestOptions, storage: Storage) {
@@ -45,6 +46,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions, stor
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     EndpointsProvider,
+    PlacesProvider,
     JwtHelper,
     {
       provide: AuthHttp,
