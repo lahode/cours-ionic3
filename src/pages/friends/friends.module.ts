@@ -4,6 +4,7 @@ import { Contacts } from '@ionic-native/contacts';
 
 import { FriendsPage } from './friends';
 import { HeaderContentComponentModule } from '../../components/header-content/header-content.module';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { HeaderContentComponentModule } from '../../components/header-content/he
   imports: [
     IonicPageModule.forChild(FriendsPage),
     HeaderContentComponentModule,
+    PipesModule
   ],
   exports: [
     FriendsPage
