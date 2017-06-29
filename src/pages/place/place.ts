@@ -24,8 +24,7 @@ export class PlacePage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private places:PlacesProvider) {
-    const selectedId = navParams.data.id;
-    this.selectedPlace = places.getPlaceById(selectedId)
+    this.selectedPlace = navParams.data.place;
   }
 
   ionViewDidEnter() {

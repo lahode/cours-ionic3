@@ -13,7 +13,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item  *ngFor="let item of items" (click)="selectItem(item.id)">
+    <ion-item  *ngFor="let item of items$ | async" (click)="selectItem(item)">
       <ion-avatar item-left>
         <img src="{{item.image}}">
       </ion-avatar>

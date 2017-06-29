@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from "rxjs";
 import 'rxjs/add/operator/map';
+
 import { AuthHttp } from 'angular2-jwt';
 import { EndpointsProvider } from './endpoints';
 
@@ -12,34 +14,21 @@ import { EndpointsProvider } from './endpoints';
 @Injectable()
 export class PlacesProvider {
 
-  data: any;
-
   constructor(private authHttp: AuthHttp,
               private endpoints: EndpointsProvider) {
-    this.data = null;
   }
 
-  load() {
-    if (this.data) {
-      return Promise.resolve(this.data);
+  getPlaces():Observable<any>  {
+    return this.authHttp.get(this.endpoints.getPlaces())
+      .map(res => res.json())
+      .catch(err => Observable.throw(this.handleErrors(err)));
+  }
+
+  private handleErrors(err: any): any {
+    if (!err.ok && err.statusText == '') {
+      err.statusText = 'Erreur de connexion avec le serveur';
     }
-
-    return new Promise(resolve => {
-      this.authHttp.get(this.endpoints.getPlaces())
-        .map(res => res.json())
-        .subscribe(data => {
-          this.data = data;
-          resolve(this.data);
-        });
-    });
-  }
-
-  getPlaceById(id){
-    let selected = null
-    this.data.map((place)=>{
-        if(place.id==id) selected = place; return selected;
-    })
-    return selected
+    return err;
   }
 
 }

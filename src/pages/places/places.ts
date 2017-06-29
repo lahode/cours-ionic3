@@ -15,16 +15,14 @@ import { PlacesProvider } from '../../providers/places';
 })
 export class PlacesPage {
 
-  items:any = [];
+  items$:any;
 
   constructor(public navCtrl: NavController, private places:PlacesProvider) {
-    this.places.load().then((data)=>{
-      this.items = data;
-    })
+    this.items$ = this.places.getPlaces();
   }
 
-  selectItem(id){
-    this.navCtrl.push('PlacePage', {id:id});
+  selectItem(place){
+    this.navCtrl.push('PlacePage', {place: place});
   }
 
 }
